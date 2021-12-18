@@ -43,6 +43,11 @@ public class MoreEnchantmentsMod implements ModInitializer {
 			Rarity.VERY_RARE, new EquipmentSlot[]{EquipmentSlot.FEET});
 	public static final Enchantment THUNDER_POWER_ENCHANTMENT = new ThunderPowerEnchantment(
 			Rarity.VERY_RARE, new EquipmentSlot[]{EquipmentSlot.MAINHAND});
+	public static final Enchantment EXPLODING_ENCHANTMENT = new ExplodingEnchantment(
+			Rarity.RARE, new EquipmentSlot[]{EquipmentSlot.MAINHAND});
+	public static final Enchantment BLUNT_ENCHANTMENT = new BluntEnchantment(
+			Rarity.COMMON, new EquipmentSlot[]{EquipmentSlot.MAINHAND});
+
 	public static final Block UNSTABLE_OBSIDIAN_BLOCK = new UnstableObsidianBlock(
 			FabricBlockSettings.copyOf(Blocks.OBSIDIAN));
 
@@ -71,6 +76,9 @@ public class MoreEnchantmentsMod implements ModInitializer {
 		register(DISARMING_ENCHANTMENT, "disarming");
 		register(OBSIDIAN_WALKER_ENCHANTMENT, "obsidian_walker");
 		register(THUNDER_POWER_ENCHANTMENT, "thunder_power");
+		register(EXPLODING_ENCHANTMENT, "exploding");
+		register(BLUNT_ENCHANTMENT, "blunt");
+
 		Registry.register(Registry.BLOCK, new Identifier("mechants",
 				"unstable_obsidian"), UNSTABLE_OBSIDIAN_BLOCK);
 
