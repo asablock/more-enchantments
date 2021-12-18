@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "id": "more-enchantments",
+  "version": "1.0.0",
+
+  "name": "More Enchantments",
+  "description": "It will add more enchantments to Minecraft.",
+  "authors": [
+    "asablock"
+  ],
+  "contact": {
+    "homepage": "no",
+    "sources": "no"
+  },
+
+  "license": "CC0-1.0",
+  "icon": "assets/mechants/icon.png",
+
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "com.asablock.MoreEnchantmentsMod"
+    ]
+  },
+  "mixins": [
+    "more-enchantments.mixins.json"
+  ],
+
+  "depends": {
+    "fabricloader": ">=0.11.6",
+    "fabric": "*",
+    "minecraft": "1.16.5",
+    "java": ">=8"
+  },
+  "suggests": {
+    "another-mod": "*"
+  }
+}

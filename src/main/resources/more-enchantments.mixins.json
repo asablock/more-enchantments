@@ -1,0 +1,20 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "com.asablock.mixin",
+  "compatibilityLevel": "JAVA_8",
+  "server": [
+    "ServerPlayerEntityMixin"
+  ],
+  "mixins": [
+    "BowItemMixin",
+    "LivinEntityAccessor",
+    "EtityAccessor",
+    "LivingEntitMixin1"
+  ],
+  "client": [
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
