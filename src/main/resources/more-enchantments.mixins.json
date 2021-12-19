@@ -11,7 +11,7 @@
     "LivinEntityAccessor",
     "EtityAccessor",
     "LivingEntitMixin1",
-    "ZombieVillagerEntityInvoker"
+    "ZombeVillagerEntityInvoker"
   ],
   "client": [
   ],
