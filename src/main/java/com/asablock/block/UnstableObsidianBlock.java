@@ -29,6 +29,7 @@ public class UnstableObsidianBlock extends Block {
 
     public UnstableObsidianBlock(Settings settings) {
         super(settings);
+        //模组首发于 mcmod.cn
         setDefaultState(getDefaultState().with(AGE, 0));
     }
 
@@ -50,8 +51,7 @@ public class UnstableObsidianBlock extends Block {
             Direction[] var6 = Direction.values();
             int var7 = var6.length;
 
-            for (int var8 = 0; var8 < var7; ++var8) {
-                Direction direction = var6[var8];
+            for (Direction direction : var6) {
                 mutable.set(pos, direction);
                 BlockState blockState = world.getBlockState(mutable);
                 if (blockState.isOf(this) && !this.increaseAge(blockState, world, mutable)) {
