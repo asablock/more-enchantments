@@ -10,7 +10,8 @@
     "BowItemMixin",
     "LivinEntityAccessor",
     "EtityAccessor",
-    "LivingEntitMixin1"
+    "LivingEntitMixin1",
+    "ZombieVillagerEntityInvoker"
   ],
   "client": [
   ],
