@@ -1,4 +1,4 @@
-# more-enchantments
+# useful-enchantments
 
 ## Description
 This project is A minecraft mod.
