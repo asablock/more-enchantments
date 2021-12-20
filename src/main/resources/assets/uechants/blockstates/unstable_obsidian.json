@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "age=0": {
+      "model": "uechants:block/unstable_obsidian_1"
+    },
+    "age=1": {
+      "model": "uechants:block/unstable_obsidian_2"
+    },
+    "age=2": {
+      "model": "uechants:block/unstable_obsidian_3"
+    },
+    "age=3": {
+      "model": "uechants:block/unstable_obsidian_4"
+    }
+  }
+}

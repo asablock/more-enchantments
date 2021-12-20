@@ -1,6 +1,6 @@
 package com.github.asablock.enchantments;
 
-import com.github.asablock.MoreEnchantmentsMod;
+import com.github.asablock.UsefulEnchantmentsMod;
 import net.minecraft.block.Blocks;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentTarget;
@@ -33,13 +33,13 @@ public class WitheringEnchantment extends DEnchantment {
         if (entityTarget instanceof LivingEntity) {
             LivingEntity target = (LivingEntity) entityTarget;
             if ((target instanceof WitherEntity || target instanceof WitherSkeletonEntity) &&
-                    MoreEnchantmentsMod.CONFIG.getOrDefault("doWitherCreatureHealingOnWithering", true)
+                    UsefulEnchantmentsMod.CONFIG.getOrDefault("doWitherCreatureHealingOnWithering", true)
             ) {
                 target.heal(level * 5);
             } else {
                 target.addStatusEffect(new StatusEffectInstance(StatusEffects.WITHER,
                         level * 100, level));
-                if (MoreEnchantmentsMod.CONFIG.getOrDefault("doWitherRosePlacingOnWithering", true))
+                if (UsefulEnchantmentsMod.CONFIG.getOrDefault("doWitherRosePlacingOnWithering", true))
                     target.world.setBlockState(target.getBlockPos(),
                             Blocks.WITHER_ROSE.getDefaultState());
             }

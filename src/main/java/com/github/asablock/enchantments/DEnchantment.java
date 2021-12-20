@@ -1,6 +1,6 @@
 package com.github.asablock.enchantments;
 
-import com.github.asablock.MoreEnchantmentsMod;
+import com.github.asablock.UsefulEnchantmentsMod;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentTarget;
 import net.minecraft.entity.EquipmentSlot;
@@ -14,7 +14,7 @@ public abstract class DEnchantment extends Enchantment {
 
     public final boolean isDisabled() {
         return Arrays.binarySearch(
-                MoreEnchantmentsMod.DISABLED_ENCHANTMENTS,
+                UsefulEnchantmentsMod.DISABLED_ENCHANTMENTS,
                 getClass().getSimpleName()) > 0;
     }
 }

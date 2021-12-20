@@ -1,6 +1,6 @@
 package com.github.asablock.enchantments;
 
-import com.github.asablock.MoreEnchantmentsMod;
+import com.github.asablock.UsefulEnchantmentsMod;
 import net.minecraft.block.*;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentTarget;
@@ -33,8 +33,8 @@ public class ObsidianWalkerEnchantment extends DEnchantment {
 
     public static void coolingLava(LivingEntity entity, World world, BlockPos blockPos, int level) {
         if (entity.isOnGround()) {
-            Block block = MoreEnchantmentsMod.CONFIG.getOrDefault("doObsidianWalkerPlacingUnstableObsidian", true)
-                    ? MoreEnchantmentsMod.UNSTABLE_OBSIDIAN_BLOCK : Blocks.OBSIDIAN;
+            Block block = UsefulEnchantmentsMod.CONFIG.getOrDefault("doObsidianWalkerPlacingUnstableObsidian", true)
+                    ? UsefulEnchantmentsMod.UNSTABLE_OBSIDIAN_BLOCK : Blocks.OBSIDIAN;
             BlockState blockState = block.getDefaultState();
             float f = (float) Math.min(16, 2 + level);
             BlockPos.Mutable mutable = new BlockPos.Mutable();

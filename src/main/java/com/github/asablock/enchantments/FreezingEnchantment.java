@@ -1,6 +1,6 @@
 package com.github.asablock.enchantments;
 
-import com.github.asablock.MoreEnchantmentsMod;
+import com.github.asablock.UsefulEnchantmentsMod;
 import net.minecraft.block.Blocks;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentTarget;
@@ -40,7 +40,7 @@ public class FreezingEnchantment extends DEnchantment {
         if (target instanceof LivingEntity) {
             ((LivingEntity) target).addStatusEffect(new StatusEffectInstance(StatusEffects.SLOWNESS,
                     100 * level, level));
-            if (MoreEnchantmentsMod.CONFIG.getOrDefault("doIcePlacingOnFreezing", true))
+            if (UsefulEnchantmentsMod.CONFIG.getOrDefault("doIcePlacingOnFreezing", true))
                 target.world.setBlockState(target.getBlockPos(), Blocks.ICE.getDefaultState());
         }
     }

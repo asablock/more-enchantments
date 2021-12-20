@@ -1,6 +1,6 @@
 package com.github.asablock.mixin;
 
-import com.github.asablock.MoreEnchantmentsMod;
+import com.github.asablock.UsefulEnchantmentsMod;
 import com.github.asablock.enchantments.DEnchantment;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.LivingEntity;
@@ -20,10 +20,10 @@ public class BowItemMixin {
             "Lnet/minecraft/world/World;Lnet/minecraft/entity/LivingEntity;I)V", at = @At("HEAD"))
     private void onStoppedUsing(ItemStack stack, World world, LivingEntity entity, int rut, CallbackInfo info) {
         if (entity instanceof PlayerEntity &&
-                !((DEnchantment) MoreEnchantmentsMod.ARROW_RECYCLING_ENCHANTMENT).isDisabled()) {
+                !((DEnchantment) UsefulEnchantmentsMod.ARROW_RECYCLING_ENCHANTMENT).isDisabled()) {
             PlayerEntity user = (PlayerEntity) entity;
             ItemStack itemStack = user.getArrowType(stack);
-            int level = EnchantmentHelper.getLevel(MoreEnchantmentsMod.ARROW_RECYCLING_ENCHANTMENT, stack);
+            int level = EnchantmentHelper.getLevel(UsefulEnchantmentsMod.ARROW_RECYCLING_ENCHANTMENT, stack);
             if (!(user.abilities.creativeMode || itemStack.isEmpty()) &&
                     user.getRandom().nextInt(100) < level * 20)
                 user.giveItemStack(new ItemStack(Items.ARROW));

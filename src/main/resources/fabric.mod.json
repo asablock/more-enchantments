@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
-  "id": "more-enchantments",
+  "id": "useful-enchantments",
   "version": "1.0.0",
 
-  "name": "More Enchantments",
-  "description": "It will add more enchantments to Minecraft.",
+  "name": "实用附魔",
+  "description": "本模组添加了许多实用的附魔，让你的生存更简单",
   "authors": [
     "asablock"
   ],
@@ -14,16 +14,16 @@
   },
 
   "license": "CC0-1.0",
-  "icon": "assets/mechants/icon.png",
+  "icon": "assets/uechants/icon.png",
 
   "environment": "*",
   "entrypoints": {
     "main": [
-      "com.github.asablock.MoreEnchantmentsMod"
+      "com.github.asablock.UsefulEnchantmentsMod"
     ]
   },
   "mixins": [
-    "more-enchantments.mixins.json"
+    "useful-enchantments.mixins.json"
   ],
 
   "depends": {

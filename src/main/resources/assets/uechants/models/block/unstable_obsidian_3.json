@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/cube_all",
   "textures": {
-    "all": "mechants:block/unstable_obsidian_2"
+    "all": "uechants:block/unstable_obsidian_2"
   }
 }

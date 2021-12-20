@@ -1,6 +1,6 @@
 package com.github.asablock.mixin;
 
-import com.github.asablock.MoreEnchantmentsMod;
+import com.github.asablock.UsefulEnchantmentsMod;
 import com.github.asablock.enchantments.DEnchantment;
 import com.github.asablock.enchantments.ObsidianWalkerEnchantment;
 import com.github.asablock.mixinsupports.SoulSpeedSupporter;
@@ -19,8 +19,8 @@ public abstract class LivingEntitMixin1 {
             at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/LivingEntity;applyMovementEffects(Lnet/minecraft/util/math/BlockPos;)V"))
     private void applyMovementEffects(LivingEntity entity, BlockPos pos) {
         LivinEntityAccessor ent = (LivinEntityAccessor) entity;
-        int i = EnchantmentHelper.getEquipmentLevel(MoreEnchantmentsMod.OBSIDIAN_WALKER_ENCHANTMENT, entity);
-        if (i > 0 && !((DEnchantment) MoreEnchantmentsMod.OBSIDIAN_WALKER_ENCHANTMENT).isDisabled()) {
+        int i = EnchantmentHelper.getEquipmentLevel(UsefulEnchantmentsMod.OBSIDIAN_WALKER_ENCHANTMENT, entity);
+        if (i > 0 && !((DEnchantment) UsefulEnchantmentsMod.OBSIDIAN_WALKER_ENCHANTMENT).isDisabled()) {
             ObsidianWalkerEnchantment.coolingLava(entity, entity.world, pos, i);
         }
         int i2 = EnchantmentHelper.getEquipmentLevel(Enchantments.FROST_WALKER, entity);

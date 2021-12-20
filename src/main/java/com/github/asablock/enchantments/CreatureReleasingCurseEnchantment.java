@@ -1,6 +1,6 @@
 package com.github.asablock.enchantments;
 
-import com.github.asablock.MoreEnchantmentsMod;
+import com.github.asablock.UsefulEnchantmentsMod;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.enchantment.EnchantmentTarget;
 import net.minecraft.entity.Entity;
@@ -58,7 +58,7 @@ public class CreatureReleasingCurseEnchantment extends DEnchantment {
 
     private Entity get(Supplier<?>[] entities, Random random) {
         Entity entity = (Entity) entities[random.nextInt(entities.length - 1)].get();
-        if (entity instanceof WitherEntity && MoreEnchantmentsMod.CONFIG.getOrDefault("canCreatureReleasingSpawnWither", true)) {
+        if (entity instanceof WitherEntity && UsefulEnchantmentsMod.CONFIG.getOrDefault("canCreatureReleasingSpawnWither", true)) {
             return get(entities, random);
         } else return entity;
     }

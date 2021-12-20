@@ -14,7 +14,7 @@ import org.apache.logging.log4j.LogManager;
 
 import static net.minecraft.enchantment.Enchantment.Rarity;
 
-public class MoreEnchantmentsMod implements ModInitializer {
+public class UsefulEnchantmentsMod implements ModInitializer {
 	private static final EquipmentSlot[] MAINHAND = {EquipmentSlot.MAINHAND};
 	private static final EquipmentSlot[] ALLHAND = {EquipmentSlot.MAINHAND, EquipmentSlot.OFFHAND};
 
@@ -54,12 +54,12 @@ public class MoreEnchantmentsMod implements ModInitializer {
 
 	public static SimpleConfig CONFIG;
 	public static String[] DISABLED_ENCHANTMENTS;
-	public static MoreEnchantmentsMod INSTANCE;
+	public static UsefulEnchantmentsMod INSTANCE;
 
 
 	@Override
 	public void onInitialize() {
-		CONFIG = SimpleConfig.of("more-enchantments").provider(x -> DEFAULT_CONFIG_STRING).request();
+		CONFIG = SimpleConfig.of("useful-enchantments").provider(x -> DEFAULT_CONFIG_STRING).request();
 		DISABLED_ENCHANTMENTS = CONFIG.getOrDefault("disableEnch", "").split(",");
 
 		register(VAMPIRIC_ENCHANTMENT, "vampiric");
@@ -71,7 +71,7 @@ public class MoreEnchantmentsMod implements ModInitializer {
 		register(AUTOMUTILATION_CURSE_ENCHANTMENT, "automutilation_curse");
 		register(ARROW_RECYCLING_ENCHANTMENT, "arrow_recycling");
 		register(new E3813ejdfafjea(Rarity.COMMON, ALLHAND), "e3813ejdfafjea"); // Inline Enchantment~
-		// Registry.ENCHANTMENT.get(new Identifier("mechants", "e3813ejdfafjea")) to get me~
+		// Registry.ENCHANTMENT.get(new Identifier("uechants", "e3813ejdfafjea")) to get me~
 		// Want to get DEnchantment instance? Use cast: (DEnchantment) obj
 		register(CREATURE_RELEASING_CURSE_ENCHANTMENT, "creature_releasing_curse");
 		register(DISARMING_ENCHANTMENT, "disarming");
@@ -81,18 +81,18 @@ public class MoreEnchantmentsMod implements ModInitializer {
 		register(BLUNT_ENCHANTMENT, "blunt");
 		register(ZOMBIE_CURE_ENCHANTMENT, "zombie_cure");
 
-		Registry.register(Registry.BLOCK, new Identifier("mechants",
+		Registry.register(Registry.BLOCK, new Identifier("uechants",
 				"unstable_obsidian"), UNSTABLE_OBSIDIAN_BLOCK);
 
-		LogManager.getLogger(MoreEnchantmentsMod.class).info("Successfully initialized More Enchantments");
+		LogManager.getLogger(UsefulEnchantmentsMod.class).info("Successfully initialized More Enchantments");
 	}
 
 	private void register(Enchantment enchantment, String path) {
-		Registry.register(Registry.ENCHANTMENT, new Identifier("mechants", path),
+		Registry.register(Registry.ENCHANTMENT, new Identifier("uechants", path),
 				enchantment);
 	}
 
-	public MoreEnchantmentsMod() {
+	public UsefulEnchantmentsMod() {
 		INSTANCE = this; // Instance Getter
 	}
 
