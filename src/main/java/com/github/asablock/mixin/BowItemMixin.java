@@ -24,6 +24,7 @@ public class BowItemMixin {
                 !((DEnchantment) UsefulEnchantmentsMod.ARROW_RECYCLING_ENCHANTMENT).isDisabled()) {
             PlayerEntity user = (PlayerEntity) entity;
             ItemStack itemStack = user.getArrowType(stack);
+            // here
             int infinityLevel = EnchantmentHelper.getLevel(Enchantments.INFINITY, stack);
             if (infinityLevel != 0) {
                 int level = EnchantmentHelper.getLevel(UsefulEnchantmentsMod.ARROW_RECYCLING_ENCHANTMENT, stack);
