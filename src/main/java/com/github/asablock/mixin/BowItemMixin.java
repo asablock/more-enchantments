@@ -3,6 +3,7 @@ package com.github.asablock.mixin;
 import com.github.asablock.UsefulEnchantmentsMod;
 import com.github.asablock.enchantments.DEnchantment;
 import net.minecraft.enchantment.EnchantmentHelper;
+import net.minecraft.enchantment.Enchantments;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.BowItem;
@@ -23,10 +24,13 @@ public class BowItemMixin {
                 !((DEnchantment) UsefulEnchantmentsMod.ARROW_RECYCLING_ENCHANTMENT).isDisabled()) {
             PlayerEntity user = (PlayerEntity) entity;
             ItemStack itemStack = user.getArrowType(stack);
-            int level = EnchantmentHelper.getLevel(UsefulEnchantmentsMod.ARROW_RECYCLING_ENCHANTMENT, stack);
-            if (!(user.abilities.creativeMode || itemStack.isEmpty()) &&
-                    user.getRandom().nextInt(100) < level * 20)
-                user.giveItemStack(new ItemStack(Items.ARROW));
+            int infinityLevel = EnchantmentHelper.getLevel(Enchantments.INFINITY, stack);
+            if (infinityLevel != 0) {
+                int level = EnchantmentHelper.getLevel(UsefulEnchantmentsMod.ARROW_RECYCLING_ENCHANTMENT, stack);
+                if (!(user.abilities.creativeMode || itemStack.isEmpty()) &&
+                        user.getRandom().nextInt(100) < level * 20)
+                    user.giveItemStack(new ItemStack(Items.ARROW));
+            }
         }
     }
 }
