@@ -30,8 +30,7 @@ public class FreezingEnchantment extends DEnchantment {
 
     @Override
     public float getAttackDamage(int level, EntityGroup group) {
-        if (isDisabled()) return 0;
-        return .25f;
+        return isDisabled() ? 0f : 2.5f;
     }
 
     @Override

@@ -31,7 +31,7 @@ public class ExplodingEnchantment extends DEnchantment {
 
     @Override
     public float getAttackDamage(int level, EntityGroup group) {
-        return isDisabled() ? 0f : -3f + level;
+        return isDisabled() ? 0f : level - 3f;
     }
 
     @Override

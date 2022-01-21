@@ -15,19 +15,17 @@ import org.spongepowered.asm.mixin.injection.Redirect;
 
 @Mixin(LivingEntity.class)
 public abstract class LivingEntitMixin1 {
-    @Redirect(method = "baseTick()V",
-            at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/LivingEntity;applyMovementEffects(Lnet/minecraft/util/math/BlockPos;)V"))
-    private void applyMovementEffects(LivingEntity entity, BlockPos pos) {
-        LivinEntityAccessor ent = (LivinEntityAccessor) entity;
-        int i = EnchantmentHelper.getEquipmentLevel(UsefulEnchantmentsMod.OBSIDIAN_WALKER_ENCHANTMENT, entity);
+    @Redirect(at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/LivingEntity;applyMovementEffects(Lnet/minecraft/util/math/BlockPos;)V"), method = "baseTick")
+    private void applyMovementEffects(LivingEntity instance, BlockPos pos) {
+        int i = EnchantmentHelper.getEquipmentLevel(UsefulEnchantmentsMod.OBSIDIAN_WALKER_ENCHANTMENT, instance);
         if (i > 0 && !((DEnchantment) UsefulEnchantmentsMod.OBSIDIAN_WALKER_ENCHANTMENT).isDisabled()) {
-            ObsidianWalkerEnchantment.coolingLava(entity, entity.world, pos, i);
+            ObsidianWalkerEnchantment.coolingLava(instance.world, pos, i, instance.isOnGround(),
+                    instance.getPos(), instance.getRandom());
         }
-        int i2 = EnchantmentHelper.getEquipmentLevel(Enchantments.FROST_WALKER, entity);
-        if (i2 > 0) {
-            FrostWalkerEnchantment.freezeWater(entity, entity.world, pos, i2);
+        int i2 = EnchantmentHelper.getEquipmentLevel(Enchantments.FROST_WALKER, instance);
+        if (i > 0) {
+            FrostWalkerEnchantment.freezeWater(instance, instance.world, pos, i);
         }
-
-        SoulSpeedSupporter.soulSpeedDetector(entity);
+        SoulSpeedSupporter.soulSpeedDetector(instance);
     }
 }
