@@ -17,15 +17,14 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(BowItem.class)
 public class BowItemMixin {
-    @Inject(method = "onStoppedUsing(Lnet/minecraft/item/ItemStack;" +
-            "Lnet/minecraft/world/World;Lnet/minecraft/entity/LivingEntity;I)V", at = @At("HEAD"))
+    @Inject(method = "onStoppedUsing", at = @At(value = "INVOKE", shift = At.Shift.BEFORE,
+            target = "Lnet/minecraft/entity/player/PlayerEntity;incrementStat(Lnet/minecraft/stat/Stat;)V"))
     private void onStoppedUsing(ItemStack stack, World world, LivingEntity entity, int rut, CallbackInfo info) {
-        if (entity instanceof PlayerEntity &&
-                !((DEnchantment) UsefulEnchantmentsMod.ARROW_RECYCLING_ENCHANTMENT).isDisabled()) {
+        if (!((DEnchantment) UsefulEnchantmentsMod.ARROW_RECYCLING_ENCHANTMENT).isDisabled()) {
             PlayerEntity user = (PlayerEntity) entity;
             ItemStack itemStack = user.getArrowType(stack);
             int infinityLevel = EnchantmentHelper.getLevel(Enchantments.INFINITY, stack);
-            if (infinityLevel != 0) {
+            if (infinityLevel > 0) {
                 int level = EnchantmentHelper.getLevel(UsefulEnchantmentsMod.ARROW_RECYCLING_ENCHANTMENT, stack);
                 if (!(user.abilities.creativeMode || itemStack.isEmpty()) &&
                         user.getRandom().nextInt(100) < level * 20)

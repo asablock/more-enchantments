@@ -9,7 +9,10 @@ import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
+import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
+
+import java.util.Random;
 
 public class ObsidianWalkerEnchantment extends DEnchantment {
     public ObsidianWalkerEnchantment(Rarity weight, EquipmentSlot[] slotTypes) {
@@ -31,8 +34,8 @@ public class ObsidianWalkerEnchantment extends DEnchantment {
         return !(other instanceof FrostWalkerEnchantment);
     }
 
-    public static void coolingLava(LivingEntity entity, World world, BlockPos blockPos, int level) {
-        if (entity.isOnGround()) {
+    public static void coolingLava(World world, BlockPos blockPos, int level, boolean onGround, Vec3d pos, Random random) {
+        if (onGround) {
             Block block = UsefulEnchantmentsMod.CONFIG.getOrDefault("doObsidianWalkerPlacingUnstableObsidian", true)
                     ? UsefulEnchantmentsMod.UNSTABLE_OBSIDIAN_BLOCK : Blocks.OBSIDIAN;
             BlockState blockState = block.getDefaultState();
@@ -40,7 +43,7 @@ public class ObsidianWalkerEnchantment extends DEnchantment {
             BlockPos.Mutable mutable = new BlockPos.Mutable();
             for (BlockPos blockPos2 : BlockPos.iterate(blockPos.add(-f, -1d, -f), blockPos.add(f,
                     -1d, f))) {
-                if (blockPos2.isWithinDistance(entity.getPos(), f)) {
+                if (blockPos2.isWithinDistance(pos, f)) {
                     mutable.set(blockPos2.getX(), blockPos2.getY() + 1, blockPos2.getZ());
                     BlockState blockState2 = world.getBlockState(mutable);
                     if (blockState2.isAir()) {
@@ -50,7 +53,7 @@ public class ObsidianWalkerEnchantment extends DEnchantment {
                                 .canPlace(blockState, blockPos2, ShapeContext.absent())) {
                             world.setBlockState(blockPos2, blockState);
                             world.getBlockTickScheduler().schedule(blockPos2,
-                                    block, MathHelper.nextInt(entity.getRandom(),
+                                    block, MathHelper.nextInt(random,
                                             60, 120));
                         }
                     }

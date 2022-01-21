@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "id": "uenchants",
-  "version": "1.0.0",
+  "version": "${version}",
 
   "name": "实用附魔",
   "description": "本模组添加了许多实用的附魔，让你的生存更简单",
@@ -10,7 +10,7 @@
   ],
   "contact": {
     "homepage": "no",
-    "sources": "no"
+    "sources": "https://github.com/asablock/more-enchantments/"
   },
 
   "license": "CC0-1.0",

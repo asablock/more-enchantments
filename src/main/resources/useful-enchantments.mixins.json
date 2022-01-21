@@ -4,12 +4,11 @@
   "package": "com.github.asablock.mixin",
   "compatibilityLevel": "JAVA_8",
   "server": [
-    "ServerPlayerEntityMixin"
   ],
   "mixins": [
     "BowItemMixin",
-    "LivinEntityAccessor",
     "EtityAccessor",
+    "LivinEntityAccessor",
     "LivingEntitMixin1",
     "ZombeVillagerEntityInvoker"
   ],
