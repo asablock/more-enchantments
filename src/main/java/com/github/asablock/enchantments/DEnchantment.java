@@ -10,9 +10,6 @@ import java.util.Arrays;
 public abstract class DEnchantment extends Enchantment {
     protected DEnchantment(Rarity weight, EnchantmentTarget type, EquipmentSlot[] slotTypes) {
         super(weight, type, slotTypes);
-        if (isCursed() && isTreasure()) {
-            throw new RuntimeException("Cursed and treasure cannot be applied to same enchantment");
-        }
     }
 
     public final boolean isDisabled() {
