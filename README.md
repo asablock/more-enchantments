@@ -67,3 +67,4 @@ Official project homepage: [https://www.mcmod.cn/class/5306.html]
   Use: When you attack any target, it will be freezing for seconds.
 
 
+
