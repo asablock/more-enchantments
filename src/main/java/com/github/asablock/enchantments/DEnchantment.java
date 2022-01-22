@@ -20,4 +20,11 @@ public abstract class DEnchantment extends Enchantment {
                 UsefulEnchantmentsMod.DISABLED_ENCHANTMENTS,
                 getClass().getSimpleName()) > 0;
     }
+
+    public static boolean isDisabled(Enchantment enchantment) {
+        if (!(enchantment instanceof DEnchantment)) {
+            return false;
+        }
+        return ((DEnchantment) enchantment).isDisabled();
+    }
 }
