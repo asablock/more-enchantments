@@ -73,7 +73,7 @@ public class UsefulEnchantmentsMod implements ModInitializer {
 		register(new E3813ejdfafjea(Rarity.COMMON, ALLHAND), "e3813ejdfafjea"); // Inline Enchantment~
 		// Registry.ENCHANTMENT.get(new Identifier("uechants", "e3813ejdfafjea")) to get me~
 		// Want to get DEnchantment instance? Use cast: (DEnchantment) obj
-		register(CREATURE_RELEASING_CURSE_ENCHANTMENT, "creature_releasing_curse");
+		//PLACEHOLDER of Creature Releasing Enchantment: A bug makes it unavailable
 		register(DISARMING_ENCHANTMENT, "disarming");
 		register(OBSIDIAN_WALKER_ENCHANTMENT, "obsidian_walker");
 		register(THUNDER_POWER_ENCHANTMENT, "thunder_power");
