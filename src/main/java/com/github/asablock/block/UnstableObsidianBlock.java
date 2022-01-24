@@ -29,7 +29,6 @@ public class UnstableObsidianBlock extends Block {
 
     public UnstableObsidianBlock(Settings settings) {
         super(settings);
-        //模组首发于 mcmod.cn
         setDefaultState(getDefaultState().with(AGE, 0));
     }
 
@@ -49,7 +48,6 @@ public class UnstableObsidianBlock extends Block {
                 world.getLightLevel(pos) > 11 - state.get(AGE) && increaseAge(state, world, pos)) {
             BlockPos.Mutable mutable = new BlockPos.Mutable();
             Direction[] var6 = Direction.values();
-            int var7 = var6.length;
 
             for (Direction direction : var6) {
                 mutable.set(pos, direction);
