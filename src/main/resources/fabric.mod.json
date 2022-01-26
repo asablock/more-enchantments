@@ -9,8 +9,8 @@
     "asablock"
   ],
   "contact": {
-    "homepage": "no",
-    "sources": "https://github.com/asablock/more-enchantments/"
+    "homepage": "https://asablock.github.io/mods/useful-enchantments.html",
+    "sources": "https://github.com/asablock/useful-enchantments/"
   },
 
   "license": "CC0-1.0",
@@ -28,7 +28,7 @@
 
   "depends": {
     "fabricloader": ">=0.11.6",
-    "fabric": "*",
+    "fabric": ">=40.0",
     "minecraft": "1.16.5",
     "java": ">=8"
   },
